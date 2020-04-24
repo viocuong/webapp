@@ -1,0 +1,23 @@
+body{
+    background-image: linear-gradient(to right bottom, #2f3f63, #1b6792, #0092b7, #00bfce, #12ebd4);background-repeat: no-repeat;
+    color: white;
+
+    
+}
+*{
+    font-size: 16px;
+    color: white;
+}
+.main{
+    padding-top:150px;
+    padding-bottom:150px ;
+}
+.main-conten{
+    background-color: #363062;
+}
+label{
+    color: white;
+}
+.bg-gradient{
+    background-image: linear-gradient(to top, #06162e, #092142, #0d2e57, #113a6d, #144784);
+}
