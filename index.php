@@ -3,5 +3,6 @@
 
     require_once './mvc/application.php';
     $a=new App();
+    echo "hello";
     //echo $_GET['url'];
 ?>
