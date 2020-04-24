@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="http://localhost/appql/public/css/style.css">
+
 <link rel="stylesheet" href="./public/css/style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow:wght@100&display=swap" rel="stylesheet">
