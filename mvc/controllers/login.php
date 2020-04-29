@@ -20,7 +20,7 @@
                             
                             header('Location: admin');
                         }
-                        else header('Location:client');
+                        else header('Location: client');
                     
                         
                     }
