@@ -29,7 +29,7 @@
             if($check==1&& $check1==0){
                 $pass=md5($pass);
                 $md->excute("insert into tb_account(userName,passWord,email,lever) values('{$user}','{$pass}','{$email}',2)");
-                echo "<script>alert('Đăng ký thành công')</script>";
+                
                 echo "<script>setTimeout(function(){
                     window.location = 'login';
                 }, 1000);</script>";
