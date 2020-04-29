@@ -1,11 +1,8 @@
 <?php
-    class admin extends Controller{
-        function default(){
-            if(empty($_SESSION['user'])){
-                header('Location: login');
-            }
-            $md=$this->requireModel('AdminModel');
-            $this->view('layoutadmin');
+    class client extends Controller{
+        public function default(){
+            $md=$this->requireModel('clientModel');
+            $this->view('layoutclient');
         }
     }
 ?>
