@@ -1,5 +1,5 @@
 <?php
-    class admmodel extends DataBase{
+    class adminModel extends DataBase{
         
     }
 ?>
