@@ -1,5 +1,5 @@
 <?php 
-    $host='localhost';
+    $host='3.22.79.240';
 ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
