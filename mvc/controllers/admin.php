@@ -1,21 +1,25 @@
 <?php
     class admin extends Controller{
         public $md;
+        function __construct()
+        {
+            $this->md=$this->requireModel('adminModel');
+        }
         public function default(){
             if(empty($_SESSION['user'])){
-                header("Location:login");
+                header("Location:../login");
             }
-            else{
-                $md=$this->requireModel('adminModel');
-                $this->view('layoutadmin',['page'=>'mainadmin']);
-            }
+            $data=$this->md->getAllListOrder();
+            if(!isset($pram)) $pram="";
+            $this->view('layoutadmin',['page'=>'managerbill','data'=>$data]);
         }
         public function home(){
             if(empty($_SESSION['user'])){
-                header("Location:login");
+                header("Location:../login");
             }
-            $this->view('layoutadmin',['page'=>'managerbill']); 
-
+            $data=$this->md->getAllListOrder();
+            if(!isset($pram)) $pram="";
+            $this->view('layoutadmin',['page'=>'managerbill','data'=>$data]);
         }
     }
 ?>

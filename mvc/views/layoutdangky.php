@@ -3,7 +3,7 @@
     <?php
         require_once './includes/header.php';
     ?>
-    <body class="container">
+    <body class="container login">
         <div class="row main justify-content-center">
             <div class="col-10 col-md-6 rounded main-conten p-5 m-5">
                 <form action="register" method="POST">

@@ -5,7 +5,6 @@
             return new $model;
         }
         public function view($view,$arr=[]){
-            
             require_once './mvc/views/'.$view.'.php';    
         }
 

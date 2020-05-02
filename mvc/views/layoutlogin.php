@@ -2,10 +2,10 @@
 <html lang="vi">
 <head>
     <head>
-        <?php include './includes/header.php';?>
+        <?php include_once './includes/header.php';?>
     </head>
 </head>
-<body class="container">
+<body class="container login">
     <div class="row main justify-content-center">
         <div class="col-10 col-md-6 rounded main-conten p-md-5 m-md-5 pt-5 pb-5 shadow-lg">
             <form action='./login' method="POST">

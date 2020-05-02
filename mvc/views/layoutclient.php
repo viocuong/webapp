@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
+
+<head>
     <?php
-        require_once './includes/header.php';
+    require_once './includes/header.php';
     ?>
-    <body>
-        <?php echo 'hello';?>
-    </body>
+</head>
+
+<body>
+    <?php echo 'hello'; ?>
+</body>
 
 </html>
