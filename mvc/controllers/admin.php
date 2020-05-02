@@ -5,16 +5,14 @@
         {
             $this->md=$this->requireModel('adminModel');
         }
-        public function default(){
+        public function default($param){
             if(empty($_SESSION['user'])){
-                header("Location:../login");
+                header("Location:./login");
             }
-            $data=$this->md->getAllListOrder();
-            if(!isset($pram)) $pram="";
+            if($param=="") $data=$this->md->getAllListOrder();
+            else if($param=="unsent") $data=$this->md->getListUnsent();
+            else if($param=="yetpay") $data=$this->md->getListYetPay();
             $this->view('layoutadmin',['page'=>'managerbill','data'=>$data]);
-        }
-        public function unsent(){
-            
         }
         public function send($idOrder){
             $this->md->excute("update tb_order set status_tranport=2 where id_order={$idOrder}");

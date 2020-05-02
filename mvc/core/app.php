@@ -22,14 +22,15 @@
                 }
             }
              //param
+             
              if(isset($arr)){
                 if(sizeof($arr)>2){
                     for($i=2;$i<sizeof($arr);$i++){
                         array_push($this->param,$arr[$i]);
                     }
                 }
+                else array_push($this->param,"");
              }
-             
              call_user_func_array([$this->controller,$this->action],$this->param);
         }
         public function processUrl(){

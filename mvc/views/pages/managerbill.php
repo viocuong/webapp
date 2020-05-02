@@ -1,11 +1,7 @@
 <div class="row">
     <div class="col-md-4 p-0 d-flex">
-        <a href="./admin" class="button container p-3 d-flex justify-content-center ">
-            <div class="row">
-                <div class="col align-self-center">
-                    <span class="material-icons">insert_chart</span>
-                </div>
-            </div>
+        <a href="http://<?php echo $HOST; ?>/webapp/admin" class="button container p-3 d-flex justify-content-center ">
+            
             <div class="row">
                 <div class="col align-self-center">
                     Tổng đơn
@@ -14,12 +10,8 @@
         </a>
     </div>
     <div class="col-md-4 p-0 d-flex">
-        <a href="" class="button container p-3 d-flex justify-content-center ">
-            <div class="row">
-                <div class="col align-self-center">
-                    <span class="material-icons">insert_chart</span>
-                </div>
-            </div>
+        <a href="http://<?php echo $HOST;?>/webapp/admin/default/unsent" class="button container p-3 d-flex justify-content-center ">
+            
             <div class="row">
                 <div class="col align-self-center">
                     Đơn chưa gửi
@@ -28,12 +20,8 @@
         </a>
     </div>
     <div class="col-md-4 p-0 d-flex">
-        <a href="" class="button container p-3 d-flex justify-content-center ">
-            <div class="row">
-                <div class="col align-self-center">
-                    <span class="material-icons">insert_chart</span>
-                </div>
-            </div>
+        <a href="http://<?php echo $HOST;?>/webapp/admin/default/yetpay" class="button container p-3 d-flex justify-content-center ">
+            
             <div class="row">
                 <div class="col align-self-center">
                     Đơn chưa trả tiền
@@ -61,7 +49,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $phpself=$_SERVER['PHP_SELF'];
+                    
                     $data = $arr['data'];
                     if ($data->num_rows > 0) {
                         while ($row = $data->fetch_assoc()) {
@@ -103,9 +91,9 @@
                                     for($idx=0;$idx<count($status);$idx++){
                                         $type="send";
                                         if($status[$idx]=="nhận tiền") $type="payed";
-                                        echo "<a href='http://3.22.79.240/webapp/admin/{$type}/{$row['id_order']}' id='status{$row['id_order']}' class='m-2 btn btn-success'>{$status[$idx]}</a>";
+                                        echo "<a href='http://{$HOST}/webapp/admin/{$type}/{$row['id_order']}' id='status{$row['id_order']}' class='m-2 btn btn-success'>{$status[$idx]}</a>";
                                     }
-                                    echo "<a href='http://3.22.79.240/admin/cancel/{$row['id_order']}' class='m-2 btn btn-danger'>Hủy đơn</a>";
+                                    echo "<a href='http://{$HOST}/admin/cancel/{$row['id_order']}' class='m-2 btn btn-danger'>Hủy đơn</a>";
                             echo "</td></tr>";
                         }
                     }
