@@ -32,10 +32,10 @@
         
     </div>
     <div class="container-fluid p-0">
-        <div class="container-fluid bg-secondary rounded">
+        <div class="container-fluid bg-light rounded">
             <div class="row">
                 <div class="col p-2 d-flex align-content-center">
-                    <a href="" style="text-decoration: none;color:white;"><span style="vertical-align: middle;" class="material-icons">person</span>xin chào <?php echo $_SESSION['user'] ?></a>
+                    <a href="" style="text-decoration: none;color:black;"><span style="color:black;vertical-align: middle;" class="material-icons">person</span>xin chào <?php echo $_SESSION['user'] ?></a>
                 </div>
             </div>
             <?php include_once './mvc/views/pages/' . $arr['page'] . '.php'; ?>
