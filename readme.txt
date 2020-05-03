@@ -4,5 +4,6 @@
     + mvc/core/database.php(4,5,6)
     + mvc/controllers/logout.php(6)
     + htdoc/css
+    + mvc/controllers/admin(11)
 
 

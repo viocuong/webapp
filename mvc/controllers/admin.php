@@ -4,10 +4,11 @@
         function __construct()
         {
             $this->md=$this->requireModel('adminModel');
+            
         }
         public function default($param){
             if(empty($_SESSION['user'])){
-                header("Location:./login");
+                header("Location:http://3.22.79.240/webapp/login");
             }
             if($param=="") $data=$this->md->getAllListOrder();
             else if($param=="unsent") $data=$this->md->getListUnsent();

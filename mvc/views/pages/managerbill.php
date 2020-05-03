@@ -93,7 +93,7 @@
                                         if($status[$idx]=="nhận tiền") $type="payed";
                                         echo "<a href='http://{$HOST}/webapp/admin/{$type}/{$row['id_order']}' id='status{$row['id_order']}' class='m-2 btn btn-success'>{$status[$idx]}</a>";
                                     }
-                                    echo "<a href='http://{$HOST}/admin/cancel/{$row['id_order']}' class='m-2 btn btn-danger'>Hủy đơn</a>";
+                                    echo "<a href='http://{$HOST}/webapp/admin/cancel/{$row['id_order']}' class='m-2 btn btn-danger'>Hủy đơn</a>";
                             echo "</td></tr>";
                         }
                     }
