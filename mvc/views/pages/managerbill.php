@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4 p-0 d-flex">
-        <a href="http://<?php echo $HOST; ?>/webapp/admin" class="button container p-3 d-flex justify-content-center ">
+        <a href="http://<?php echo $GLOBALS['HOST']; ?>/webapp/admin" class="button container p-3 d-flex justify-content-center ">
             
             <div class="row">
                 <div class="col align-self-center">
@@ -10,28 +10,61 @@
         </a>
     </div>
     <div class="col-md-4 p-0 d-flex">
-        <a href="http://<?php echo $HOST;?>/webapp/admin/default/unsent" class="button container p-3 d-flex justify-content-center ">
+        <a href="http://<?php echo $GLOBALS['HOST'];?>/webapp/admin/default/unsent" class="button container p-3 d-flex justify-content-center ">
             
             <div class="row">
                 <div class="col align-self-center">
                     Đơn chưa gửi
                 </div>
+                <div class="d-flex">
+                    <div id="unsent" class="bg-danger rounded-lg">
+                        <?php
+                            if($arr['notice']['usent']!=0){
+                                echo "
+                                    <script>
+                                        var element=document.getElementById('unsent');
+                                        element.classList.add('p-1');
+                                    </script>
+                                ";
+                                echo $arr['notice']['usent'];
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
         </a>
+        
     </div>
     <div class="col-md-4 p-0 d-flex">
-        <a href="http://<?php echo $HOST;?>/webapp/admin/default/yetpay" class="button container p-3 d-flex justify-content-center ">
+        <a href="http://<?php echo $GLOBALS['HOST'];?>/webapp/admin/default/yetpay" class="button container p-3 d-flex justify-content-center ">
             
             <div class="row">
                 <div class="col align-self-center">
                     Đơn chưa trả tiền
                 </div>
+                <div class="d-flex">
+                    <div id="yetpay" class="bg-danger rounded-lg">
+
+                        <?php
+                            if($arr['notice']['upay']!=0){
+                                echo "
+                                    <script>
+                                        var element=document.getElementById('yetpay');
+                                        element.classList.add('p-1');
+                                    </script>
+                                ";
+                                echo $arr['notice']['upay'];
+                            }
+                        ?>
+                    </div>
+                </div>
+                
             </div>
         </a>
     </div>
 </div>
 
-<div class="row pt-5">
+<div class="row pt-5 ttb">
     <div class="bg-light rounded p-md-2 p-0 container-fluid">
         <div class="col overflow-auto p-0 m-0">
             <table class="table table-hover">
@@ -48,9 +81,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <script>
+                        function setNotices(idNotices,num){
+                            document.getElementById(idNotices).innerHTML=num;
+                        }
+                    </script>
                     <?php
-                    
                     $data = $arr['data'];
+                    $numUnsent=$numYetPay=0;
                     if ($data->num_rows > 0) {
                         while ($row = $data->fetch_assoc()) {
                             $status=[];
@@ -66,6 +104,7 @@
                                         $check=1;
                                     }
                                     if($check==0){
+                                        $numUnsent++;
                                         array_push($status,'gửi hàng');
                                     }
                                     echo "<td class={$colorStatus}>$content</td>";
@@ -79,6 +118,7 @@
                                         $check=1;
                                     }
                                     if($check==0){
+                                        $numYetPay++;
                                         array_push($status,"nhận tiền");
                                     }
                                     echo "<td class={$colorStatus}>$content</td>";
@@ -91,11 +131,12 @@
                                     for($idx=0;$idx<count($status);$idx++){
                                         $type="send";
                                         if($status[$idx]=="nhận tiền") $type="payed";
-                                        echo "<a href='http://{$HOST}/webapp/admin/{$type}/{$row['id_order']}' id='status{$row['id_order']}' class='m-2 btn btn-success'>{$status[$idx]}</a>";
+                                        echo "<a href='http://{$GLOBALS['HOST']}/webapp/admin/{$type}/{$row['id_order']}' id='status{$row['id_order']}' class='m-2 btn btn-success'>{$status[$idx]}</a>";
                                     }
-                                    echo "<a href='http://{$HOST}/webapp/admin/cancel/{$row['id_order']}' class='m-2 btn btn-danger'>Hủy đơn</a>";
+                                    echo "<a href='http://{$GLOBALS['HOST']}/webapp/admin/cancel/{$row['id_order']}' class='m-2 btn btn-danger'>Hủy đơn</a>";
                             echo "</td></tr>";
                         }
+                        
                     }
                     ?>
                     <script>
@@ -107,7 +148,6 @@
                         }
                     </script>
                 </tbody>
-
             </table>
         </div>
 
