@@ -1,15 +1,19 @@
 <?php
     class admin extends Controller{
         public $md;
+        public $user;
         function __construct()
         {
             $this->md=$this->requireModel('adminModel');
-            
-        }
-        public function default($param){
             if(empty($_SESSION['user'])){
                 header("Location:http://{$GLOBALS['HOST']}/webapp/login");
             }
+            else $user=$_SESSION['user'];
+            if(!$this->md->isAdmin($user)){
+                header("Location:http://{$GLOBALS['HOST']}/webapp/client");
+            }
+        }
+        public function default($param){
             $Notices=$this->md->getNotices();
             if($param=="") $data=$this->md->getAllListOrder();
             else if($param=="unsent") $data=$this->md->getListUnsent();

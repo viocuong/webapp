@@ -13,7 +13,11 @@
             return $result;
         }
         public function excute($sql){
-            $this->conn->query($sql);
+            $data=$this->conn->query($sql);
+        }
+        public function isAdmin($user){
+            $result=$this->conn->query("SELECT lever FROM tb_account where userName='{$user}' and lever=1");
+            return $result->num_rows>0;
         }
         public function getNotices(){
             $unsent=$yetpay=0;
@@ -40,7 +44,6 @@
                 $stmt->close();
                 return $result;
             }
-
         }
     }
 ?>
