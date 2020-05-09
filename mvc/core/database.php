@@ -2,7 +2,7 @@
     class DataBase{
         protected $conn;
         protected $servername="localhost";
-        protected $username="cuongnguyen";
+        protected $username="cuonnguyen";
         protected $password="cuong28021999";
         protected $dbname="appql";
         function __construct()

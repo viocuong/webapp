@@ -45,5 +45,26 @@
                 return $result;
             }
         }
+        public function getOrder($idOrder){
+            $result=$this->conn->query("SELECT content,price,link_fb FROM tb_order where id_order='{$idOrder}'");
+            $data=$result->fetch_assoc();
+            return $data;
+        }
+        public function updateOrder($content,$price,$idorder){
+            $this->conn->query("UPDATE tb_order SET content='{$content}',price={$price} where id_order={$idorder}");
+            
+        }
+        public function editOrder(){
+            if (!empty($_POST['contentorder']) && !empty($_POST['price'])) {
+                $content = trim($_POST['contentorder']);
+                
+                $price = trim($_POST['price']);
+                $this->md->updateOrder($content, $price, $_POST['iddon']);
+                echo "<script>
+                    alert('Cập nhật thành công');
+                </script>";
+                header("Location: http://{$GLOBALS['HOST']}/webapp/admin");
+            }
+        }
     }
 ?>

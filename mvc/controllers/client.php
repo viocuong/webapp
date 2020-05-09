@@ -70,7 +70,7 @@ class client extends Controller
             $linkfb = trim($_POST['linkfb']);
             $price = trim($_POST['price']);
             $this->md->createorder($content, $price, $linkfb, $this->user);
-            ////////////// Send massage//////////////////////////
+            //////////// Send massage//////////////////////////
             $ch = curl_init(); 
 
             //** Bước 2: Thiết lập các tuỳ chọn
@@ -91,7 +91,7 @@ class client extends Controller
                         alert('Tạo đơn thành công');
                         setTimeout(function(){
                             window.location = 'http://{$GLOBALS['HOST']}/webapp/client';
-                        }, 1000);
+                        }, 500);
 
                     </script>
                 ";

@@ -19,7 +19,7 @@
     </div>
 </header>
 
-<body style="">
+<body >
     <div id="menuleft" class="menu">
         <div class="h3 pt-5 " style="text-align: center;color:#ffffff;font-family:'Bangers', cursive;">Bán hàng năm châu</div>
         <div class="" style="text-align: center">
