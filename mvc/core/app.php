@@ -1,7 +1,7 @@
 <?php
     class App{
         //localhost/appql/home/hello/123
-        protected $controller='home';
+        protected $controller='login';
         protected $action='default';
         protected $param=[];
         function __construct()
@@ -22,7 +22,6 @@
                 }
             }
              //param
-             
              if(isset($arr)){
                 if(sizeof($arr)>2){
                     for($i=2;$i<sizeof($arr);$i++){

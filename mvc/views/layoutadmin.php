@@ -25,15 +25,13 @@
         <div class="" style="text-align: center">
             <a class="" href="" style="color:#ffffff;text-decoration: none;"><span style="vertical-align: middle;" class="material-icons">person</span>xin chào <?php echo $_SESSION['user'] ?></a>
         </div>
-
         <nav class="mt-3">
             <ul class="p-2">
-                <li><a href="" class="btn-menu p-3">Trả lương</a><span style="color: red;font-size: 10px">đang hoàn thiện</span></li>
+                <li><a href="http://<?php echo $GLOBALS['HOST'];?>/webapp/admin/statistical" class="btn-menu p-3">Thống kê</a><span style="color: red;font-size: 10px">đang hoàn thiện</span></li>
                 <li><a href="" class="btn-menu p-3">Mặt hàng</a><span style="color: red;font-size: 10px"> đang hoàn thiện</span></li>
                 <li><a href="http://<?php echo $GLOBALS['HOST']; ?>/webapp/logout" class="btn-menu p-3">Đăng xuất</a></li>
             </ul>
         </nav>
-
     </div>
     <div class="container-fluid p-0">
         <div class="bg-light rounded bodyadmin">

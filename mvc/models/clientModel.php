@@ -47,8 +47,9 @@
         }
         public function createorder($content,$price,$linkfb,$user){
             $stmt=$this->conn->prepare("insert into tb_order(content,price,link_fb,userName) VALUES(?,?,?,?)");
-            $stmt->bind_param("siss",$content,$price,$linkfb,$user);
+            $stmt->bind_param("sdss",$content,$price,$linkfb,$user);
             $stmt->execute();
             $stmt->close();
         }
+        
     }
