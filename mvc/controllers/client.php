@@ -71,18 +71,18 @@ class client extends Controller
             $price = trim($_POST['price']);
             $this->md->createorder($content, $price, $linkfb, $this->user);
             ////////// Send massage//////////////////////////
-            $ch = curl_init(); 
+            $ch = curl_init();
             //** Bước 2: Thiết lập các tuỳ chọn
             //Thiết lập URL trong request
-            curl_setopt($ch, CURLOPT_URL, "https://fchat.vn/api/send?user_id=4051670644857979&block_id=5eb28882f0126e1cb226604f&token=04b06a0b48add9f97b661b16a0bcc48d52ac1ca7"); 
-        
+            curl_setopt($ch, CURLOPT_URL, "https://fchat.vn/api/send?user_id=4051670644857979&block_id=5eb28882f0126e1cb226604f&token=04b06a0b48add9f97b661b16a0bcc48d52ac1ca7");
+
             // Thiết lập để trả về dữ liệu request thay vì hiển thị dữ liệu ra màn hình
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-        
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
             // ** Bước 3: thực hiện việc gửi request
-            $output = curl_exec($ch); 
+            $output = curl_exec($ch);
             echo $output; // hiển thị nội dung
-        
+
             // ** Bước 4 (tuỳ chọn): Đóng request để giải phóng tài nguyên trên hệ thống
             curl_close($ch);
             echo "
@@ -104,5 +104,26 @@ class client extends Controller
                     </script>
                 ";
         }
+    }
+    public function statistical()
+    {
+        $data = [];
+        $Notices = $this->md->getNotices($this->user);
+        $orders = $this->md->getListOrder($this->user);
+        $sumorder = $sent = $paid  = 0;
+        $arr = [];
+        if ($orders->num_rows > 0) {
+            $sumorder = $orders->num_rows;
+            while ($order = $orders->fetch_assoc()) {
+                if ($order['status_tranport'] == 2) $sent++;
+                if ($order['status_pay'] == 2) $paid++;
+            }
+            $arr['user'] = $this->user;
+            $arr['sumorder'] = $sumorder;
+            $arr['sent'] = $sent;
+            $arr['paid'] = $paid;
+        }
+        $data = $arr;
+        $this->view('layoutclient', ['page' => 'managerstatisticalclient', 'data' => $data, 'notice' => $Notices]);
     }
 }
