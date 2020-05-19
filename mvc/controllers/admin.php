@@ -99,5 +99,10 @@
             }
             $this->view('layoutadmin',['page'=>'managerstatistical','data'=>$data,'notice'=>$Notices]);
         }
+        public function paysalary($user){
+            $this->md->deleteTbOrd($user);
+            echo "<script>alert('ok') </script>";
+            header("Location:http://{$GLOBALS['HOST']}/webapp/admin/statistical");
+        }
     }
 ?>

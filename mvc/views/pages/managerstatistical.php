@@ -1,4 +1,8 @@
 <div class="row">
+
+
+</div>
+<div class="row">
     <div class="col-md-4 p-0 d-flex">
         <a href="http://<?php echo $GLOBALS['HOST']; ?>/webapp/admin" class="button container p-3 d-flex justify-content-center">
 
@@ -72,12 +76,21 @@
 
 </div>
 <div class="container-md container-fluid">
+    <div class="row pt-5">
+        <h3 style="color:#222831">Chú thích</h3>
+        <div class="col-12 mb-3 d-flex p-2 rounded-lg note-success">
+            <p>Số tiền lương ứng với số đơn đã trả tiền</p>
+        </div>
+        <div class="col-12 mb-3 p-2 rounded-lg note-danger">
+            <p>Sau khi ấn nút trả lương sẽ xóa toàn bộ các đơn đã gửi và đơn đã trả tiền, các đơn chưa gửi hoặc chưa trả tiền vẫn tồn tại, doanh thu sẽ được đặt lại thành 0</p>
+        </div>
+    </div>
     <?php
-    $data=$arr['data'];
-    if (count($data)>0) {
-        
-        for($i=0;$i<count($data);$i++) {
-            $salary = $data[$i]['paid']*40000;
+    $data = $arr['data'];
+    if (count($data) > 0) {
+
+        for ($i = 0; $i < count($data); $i++) {
+            $salary = $data[$i]['paid'] * 40000;
             echo "
                 <div class='row statistical mt-5 pl-md-5'>
                 <div class='col-md-6 mb-2 mt-2'>
@@ -90,8 +103,31 @@
                     </div>
                 </div>
                 <div class='mb-2 col-md-6 align-self-center justify-content-center' >
+                    
                     <div class='d-flex justify-content-center' style='text-align: center;'>
-                        <a href='' class='btn-pay p-2 w-75 p-md-5'>Trả lương</a>
+                    <button href='' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal{$data[$i]['user']}'>Trả lương</button>    
+                    <div class='modal fade' id='myModal{$data[$i]['user']}' role='dialog'>
+                    <div class='modal-dialog'>
+                    
+                      <!-- Modal content-->
+                      <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h4 class='modal-title'>Xác nhận</h4>
+                            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                          
+                        </div>
+                        <div class='modal-body'>
+                          <p>Xác nhận trả lương cho {$data[$i]['user']}</p>
+                        </div>
+                        <div class='modal-footer'>
+                            <a onclick='paysalary({{$data[$i]['user']}})' id='btn{$data[$i]['user']}' href='http://{$GLOBALS['HOST']}/webapp/admin/paysalary/{$data[$i]['user']}' class='btn btn-success'>Đồng ý</a>
+                            <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                        
                     </div>
                 </div>
             </div>
@@ -100,3 +136,9 @@
     }
     ?>
 </div>
+<script>
+    function paysalary(user){
+        var url="http://<?php echo $GLOBALS['HOST']; ?>/webapp/admin/paysalary/"+user;
+        window.location.href=url;
+    }
+</script>
