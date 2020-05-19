@@ -105,8 +105,8 @@
                 <div class='mb-2 col-md-6 align-self-center justify-content-center' >
                     
                     <div class='d-flex justify-content-center' style='text-align: center;'>
-                    <button href='' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal{$data[$i]['user']}'>Trả lương</button>    
-                    <div class='modal fade' id='myModal{$data[$i]['user']}' role='dialog'>
+                    <button href='' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal{$i}'>Trả lương</button>    
+                    <div class='modal fade' id='myModal{$i}' role='dialog'>
                     <div class='modal-dialog'>
                     
                       <!-- Modal content-->
