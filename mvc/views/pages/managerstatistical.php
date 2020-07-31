@@ -72,8 +72,6 @@
     </div>
 </div>
 <div style="text-align:center;">
-
-
 </div>
 <div class="container-md container-fluid">
     <div class="row pt-5">
@@ -126,8 +124,7 @@
                       </div>
                       
                     </div>
-                  </div>
-                        
+                  </div>    
                     </div>
                 </div>
             </div>
@@ -137,8 +134,8 @@
     ?>
 </div>
 <script>
-    function paysalary(user){
-        var url="http://<?php echo $GLOBALS['HOST']; ?>/webapp/admin/paysalary/"+user;
-        window.location.href=url;
+    function paysalary(user) {
+        var url = "http://<?php echo $GLOBALS['HOST']; ?>/webapp/admin/paysalary/" + user;
+        window.location.href = url;
     }
 </script>

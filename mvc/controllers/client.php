@@ -74,7 +74,7 @@ class client extends Controller
             $ch = curl_init();
             //** Bước 2: Thiết lập các tuỳ chọn
             //Thiết lập URL trong request
-            curl_setopt($ch, CURLOPT_URL, "https://fchat.vn/api/send?user_id=4051670644857979&block_id=5eb28882f0126e1cb226604f&token=04b06a0b48add9f97b661b16a0bcc48d52ac1ca7");
+            curl_setopt($ch, CURLOPT_URL, "https://fchat.vn/api/send?user_id=4051670644857979&block_id=5eb28882f0126e1cb226604f&token=fdff767c9d3162e126d5e6835ca8eeaa5db1d0d7");
 
             // Thiết lập để trả về dữ liệu request thay vì hiển thị dữ liệu ra màn hình
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
