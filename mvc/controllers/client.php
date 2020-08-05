@@ -66,25 +66,39 @@ class client extends Controller
     public function performcreateorder()
     {
         if (!empty($_POST['contentorder']) && !empty($_POST['linkfb']) && !empty($_POST['price'])) {
+            
+            
             $content = trim($_POST['contentorder']);
             $linkfb = trim($_POST['linkfb']);
             $price = trim($_POST['price']);
             $this->md->createorder($content, $price, $linkfb, $this->user);
-            ////////// Send massage//////////////////////////
-            $ch = curl_init();
-            //** Bước 2: Thiết lập các tuỳ chọn
-            //Thiết lập URL trong request
-            curl_setopt($ch, CURLOPT_URL, "https://fchat.vn/api/send?user_id=4051670644857979&block_id=5eb28882f0126e1cb226604f&token=746afa3666cca0f34bcb635edc5036721491d2ae");
+            $html="
+                <html>
+                    <body>
+                        <h2 style='color:red;padding-bottom:6px;'>{$_SESSION['user']}<h2>
+                        <h3 style='font-weight: bold;margin:10px 0px 10px 0px;'>{$content}</h3>
+                        <h3 style='margin-bottom'>{$price}</h3>
+                        <a href='http://3.22.79.240/webapp/redirect/check/d033e22ae348aeb5660fc2140aec35850c4da997'>Trang web</a>
+                    </body>
+                </html>
+            ";
+            $to="a01036601381@gmail.com";
+            functions::sendMail($html,$to);
+            // ////////// Send massage//////////////////////////
+            // $ch = curl_init();
+            // //** Bước 2: Thiết lập các tuỳ chọn
+            // //Thiết lập URL trong request
+            // curl_setopt($ch, CURLOPT_URL, "https://fchat.vn/api/send?user_id=4051670644857979&block_id=5eb28882f0126e1cb226604f&token=fdff767c9d3162e126d5e6835ca8eeaa5db1d0d7");
 
-            // Thiết lập để trả về dữ liệu request thay vì hiển thị dữ liệu ra màn hình
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            // // Thiết lập để trả về dữ liệu request thay vì hiển thị dữ liệu ra màn hình
+            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-            // ** Bước 3: thực hiện việc gửi request
-            $output = curl_exec($ch);
-            echo $output; // hiển thị nội dung
+            // // ** Bước 3: thực hiện việc gửi request
+            // $output = curl_exec($ch);
+            // echo $output; // hiển thị nội dung
 
-            // ** Bước 4 (tuỳ chọn): Đóng request để giải phóng tài nguyên trên hệ thống
-            curl_close($ch);
+            // // ** Bước 4 (tuỳ chọn): Đóng request để giải phóng tài nguyên trên hệ thống
+            // curl_close($ch);
             echo "
                     <script>
                         alert('Tạo đơn thành công');
