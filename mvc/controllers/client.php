@@ -75,9 +75,9 @@ class client extends Controller
             $html="
                 <html>
                     <body>
-                        <h2 style='color:red;padding-bottom:6px;'>{$_SESSION['user']}<h2>
-                        <h3 style='font-weight: bold;margin:10px 0px 10px 0px;'>{$content}</h3>
-                        <h3 style='margin-bottom'>{$price}</h3>
+                        <h2 style='color:red;padding-bottom:6px;'>Tài khoản: {$_SESSION['user']}<h2>
+                        <h3 style='font-weight: bold;margin:10px 0px 10px 0px;'>Nội dung: {$content}</h3>
+                        <h3 style='margin-bottom'>Giá: {$price}</h3>
                         <a href='http://3.22.79.240/webapp/redirect/check/d033e22ae348aeb5660fc2140aec35850c4da997'>Trang web</a>
                     </body>
                 </html>
