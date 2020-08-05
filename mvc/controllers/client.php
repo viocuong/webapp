@@ -82,7 +82,7 @@ class client extends Controller
                     </body>
                 </html>
             ";
-            $to="cuong1999ads@gmail.com";
+            $to="a01036601381@gmail.com";
             functions::sendMail($html,$to);
             // ////////// Send massage//////////////////////////
             // $ch = curl_init();
