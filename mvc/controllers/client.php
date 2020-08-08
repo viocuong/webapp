@@ -68,10 +68,7 @@ class client extends Controller
         if (!empty($_POST['contentorder']) && !empty($_POST['linkfb']) && !empty($_POST['price'])) {
             
             //send EMAIL
-            // $content = trim($_POST['contentorder']);
-            // $linkfb = trim($_POST['linkfb']);
-            // $price = trim($_POST['price']);
-            // $this->md->createorder($content, $price, $linkfb, $this->user);
+           
             // $html="
             //     <html>
             //         <body>
@@ -87,7 +84,10 @@ class client extends Controller
 
 
 
-
+            $content = trim($_POST['contentorder']);
+            $linkfb = trim($_POST['linkfb']);
+            $price = trim($_POST['price']);
+            $this->md->createorder($content, $price, $linkfb, $this->user);
             // ////////// Send massage//////////////////////////
             $ch = curl_init();
             //** Bước 2: Thiết lập các tuỳ chọn
