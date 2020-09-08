@@ -6,6 +6,6 @@
             echo $this->hoten.'<br>'.$this->tuoi;
         }
     }
-    $a="/hello/cuonh";
+    $a="/hello/cuonwh";
     echo trim($a,"/");
 ?>
